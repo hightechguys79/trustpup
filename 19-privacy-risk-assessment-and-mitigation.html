@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>🐶 Privacy Risk Assessment & Mitigation</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65;margin:0;background:#fafafa;color:#222}
+    main{max-width:860px;margin:40px auto;padding:0 20px;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+    header{padding:28px 28px 0}
+    h1{margin:0 0 8px}
+    section{padding:18px 28px}
+    h2{margin:0 0 8px;font-size:1.1rem;color:#0b5fff;text-transform:uppercase;letter-spacing:.04em}
+    ul{padding-left:18px}
+    .tag{display:inline-block;background:#eef4ff;color:#0b5fff;border-radius:999px;padding:2px 10px;font-size:.8rem;margin-left:.4rem}
+    .refs a{color:#0b5fff;text-decoration:none}
+    .refs li{margin:.35rem 0}
+    mark{background:#fff4cc;padding:0 .25rem;border-radius:4px}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>🐶 Privacy Risk Assessment &amp; Mitigation <span class="tag">Impact × Likelihood</span></h1>
+    <p>Score the risks, pick the controls, prove they worked. Rinse and repeat.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p>A <strong>privacy risk assessment</strong> evaluates how likely personal data could be exposed/misused and the impact if it happens. Use a matrix to score <em>likelihood</em> × <em>impact</em>, then choose technical and organizational controls to reduce both. Often paired with a <mark>PIA/DPIA</mark> for higher-risk processing.</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>Resources are finite; risk scoring helps you prioritize what to fix first. It also creates an audit trail showing you identified risks and implemented controls—gold for regulators and customers.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <ul>
+      <li><strong>Amazon-like purchase data:</strong> High sensitivity (behavioral + payment linkage). Mitigate with minimization, tokenization, access limits, and DP for analytics.</li>
+      <li><strong>Walmart loyalty + location:</strong> Linkability risk—rotate IDs, coarsen geolocation, shorten retention.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li>List assets (PII, sensitive, behavioral), threats, vulnerabilities, <strong>likelihood/impact</strong> ratings.</li>
+      <li>Choose mitigations: encryption, pseudonymization, DP, RBAC/ABAC, vendor DPAs, purpose limits, retention cuts.</li>
+      <li>Track residual risk and owners; re-score after each control.</li>
+      <li>Tie results to PIAs/DPIAs and quarterly reviews.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>NIST Privacy Framework (Identify-P → Control-P): <a href="https://www.nist.gov/privacy-framework" target="_blank" rel="noopener">nist.gov/privacy-framework</a></li>
+      <li>EDPB DPIA Guidelines: <a href="https://edpb.europa.eu/" target="_blank" rel="noopener">edpb.europa.eu</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

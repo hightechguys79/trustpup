@@ -1,0 +1,1323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 TrustPuppy</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --color-background: #f8f9fa;
+      --color-text: #1a1a1a;
+      --color-accent: #0f172a;
+      --color-accent-light: #1e293b;
+      --color-gray-light: #e5e7eb;
+      --color-gray: #9ca3af;
+      --color-primary: #0f172a;
+      --max-width: 1200px;
+      --nav-height: 4rem;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+    }
+
+    body {
+      background-color: var(--color-background);
+      color: var(--color-text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-top: var(--nav-height);
+    }
+
+    .nav-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-gray-light);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--color-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-accent);
+    }
+
+    .nav-btn {
+      background-color: var(--color-accent);
+      color: white !important;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    ::selection {
+      background: var(--color-accent);
+      color: white;
+    }
+
+    section {
+      padding: 4rem 0;
+      position: relative;
+    }
+
+    section:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: var(--max-width);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-gray-light) 50%, transparent);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--color-accent);
+    }
+
+    p {
+      margin: 1rem 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--color-accent);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(255 255 255 / 0.1);
+      transform: translateX(-100%);
+      transition: var(--transition);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn:hover::after {
+      transform: translateX(0);
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      margin: 1rem 0;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mt-16 {
+      margin-top: 4rem;
+    }
+
+    .mt-10 {
+      margin-top: 2.5rem;
+    }
+
+    .mt-4 {
+      margin-top: 1rem;
+    }
+
+    .text-4xl {
+      font-size: 2.5rem;
+    }
+
+    .text-lg {
+      font-size: 1.125rem;
+    }
+
+    .text-sm {
+      font-size: 0.875rem;
+    }
+
+    .text-gray {
+      color: var(--color-gray);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .feature-badges {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-gray);
+      font-size: 0.875rem;
+    }
+
+    .badge svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 800px;
+      margin: 4rem auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--color-gray);
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--color-gray-light);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid var(--color-gray-light);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+      transform: translateY(-100%);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .feature-card:hover::before {
+      transform: translateY(0);
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .commitment-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 3rem;
+      text-align: center;
+      margin: 4rem 0;
+    }
+
+    .commitment-card blockquote {
+      font-size: 1.5rem;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+      color: var(--color-accent);
+    }
+
+    .commitment-card cite {
+      color: var(--color-gray);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: var(--color-gray);
+      margin-bottom: 2rem;
+      font-size: 1.125rem;
+    }
+
+    .product-suite {
+      background: var(--color-background);
+      padding: 2rem 0;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--color-gray-light);
+    }
+
+    .product-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .product-card .subtitle {
+      color: var(--color-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-text);
+    }
+
+    .feature-list li::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+      background-size: contain;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .text-hint {
+      color: var(--color-gray);
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+
+    .problem-solution {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: var(--color-background);
+      border-radius: 0.5rem;
+    }
+
+    .problem-solution h4 {
+      color: #dc2626;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .problem-solution .approach {
+      color: #2563eb;
+      margin-top: 1rem;
+    }
+
+    .problem-solution .value {
+      color: #059669;
+      margin-top: 1rem;
+    }
+
+    .try-btn {
+      color: var(--color-gray);
+      font-size: 0.875rem;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--color-gray-light);
+      transition: all 0.2s ease;
+    }
+
+    .try-btn:hover {
+      background: var(--color-gray-light);
+      color: var(--color-accent);
+    }
+
+    .services-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      border-bottom: 1px solid var(--color-gray-light);
+    }
+
+    .services-tab {
+      padding: 1rem 2rem;
+      color: var(--color-gray);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .services-tab.active {
+      color: var(--color-accent);
+      border-bottom-color: var(--color-accent);
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--color-gray-light);
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-accent);
+    }
+
+    .service-card .subtitle {
+      color: var(--color-gray);
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: var(--color-text);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card .learn-more {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: var(--color-accent);
+      border: 1px solid var(--color-gray-light);
+      transition: all 0.2s ease;
+    }
+
+    .service-card .learn-more:hover {
+      background: var(--color-gray-light);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero, .feature-card, .product-card, .service-card {
+      animation: fadeIn 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .hero { animation-delay: 0.1s; }
+    .feature-card:nth-child(1) { animation-delay: 0.2s; }
+    .feature-card:nth-child(2) { animation-delay: 0.3s; }
+    .feature-card:nth-child(3) { animation-delay: 0.4s; }
+    .feature-card:nth-child(4) { animation-delay: 0.5s; }
+
+    .services-tab {
+      position: relative;
+    }
+
+    .services-tab::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-accent);
+      transition: var(--transition);
+      transform: translateX(-50%);
+    }
+
+    .services-tab:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-tabs {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .feature-badges {
+        flex-wrap: wrap;
+      }
+
+      .services-tab {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 2rem 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .product-card, .service-card {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Blog Grid Styles */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      border: 1px solid var(--color-gray-light);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      height: fit-content;
+    }
+
+    .blog-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+      transform: translateY(-100%);
+      transition: var(--transition);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .blog-card:hover::before {
+      transform: translateY(0);
+    }
+
+    .blog-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--color-accent);
+      line-height: 1.3;
+    }
+
+    .blog-card p {
+      color: var(--color-gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .blog-card .read-more {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .blog-card .read-more:hover {
+      color: var(--color-accent-light);
+      transform: translateX(4px);
+    }
+
+    /* Pagination Styles */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0;
+    }
+
+    .pagination-btn {
+      background: var(--color-accent);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .pagination-btn:hover:not(:disabled) {
+      background: var(--color-accent-light);
+      transform: translateY(-2px);
+    }
+
+    .pagination-btn:disabled {
+      background: var(--color-gray);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .page-info {
+      font-weight: 500;
+      color: var(--color-accent);
+      min-width: 100px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .pagination {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .pagination-btn {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body >
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        TrustPuppy
+      </a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#ai-engineering">AI Engineering</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#" class="nav-btn">Start a pilot</a>
+      </div>
+    </div>
+  </nav>
+
+  <div id="root">
+    <main class="container">
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div style="max-width: 800px; margin: 0 auto;">
+          <h2 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Privacy Base Suite</h2>
+          <p style="color: var(--color-gray); margin-bottom: 2rem;">Composable building blocks for privacy-preserving AI.</p>
+          
+          <h1 style="font-size: 4rem; line-height: 1.1; margin-bottom: 2rem;">Ship privacy-first AI your customers actually trust <em>(and kinda love)</em>.</h1>
+          
+          <p style="font-size: 1.25rem; margin-bottom: 2rem;">Craft copilots, analytics, and automations without leaking secrets.</p>
+          <p style="font-size: 1.25rem; margin-bottom: 2rem;">Elegant by design, private by default.</p>
+
+          <div class="hero-buttons" style="margin-bottom: 2rem;">
+            <a href="#" class="btn" style="background: #000; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 500; margin-right: 1rem;">Start a pilot →</a>
+            <a href="#" class="btn" style="color: #000; padding: 0.75rem 1.5rem; text-decoration: none; font-weight: 500; background: white; border: 1px solid #000; border-radius: 0.5rem;">See live demo</a>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 2rem;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                </svg>
+                <strong>On-device & edge AI</strong>
+              </div>
+              <p style="color: var(--color-gray);">Run models where your data lives. Keep raw data on the cloud without sacrificing speed or accuracy.</p>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <strong>Zero-retain pipelines</strong>
+              </div>
+              <p style="color: var(--color-gray);">Streams are processed with ephemeral storage and automatic redaction to minimize data exposure.</p>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0110 0v4"></path>
+                </svg>
+                <strong>Encrypted by default</strong>
+              </div>
+              <p style="color: var(--color-gray);">End-to-end encryption, attestations, and verifiable logs for compliance-ready deployments.</p>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <strong>Selective disclosure</strong>
+              </div>
+              <p style="color: var(--color-gray);">Granular policies decide what the model may see — and what stays private forever.</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1rem;">
+            <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-gray);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+              Global
+            </span>
+            <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-gray);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="2"></rect>
+              </svg>
+              VPC/On-prem
+            </span>
+            <span style="display: flex; align-items: center; gap: 0.5rem; color: var(--color-gray);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+              SOC2 ready
+            </span>
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <a href="#" style="color: var(--color-accent); text-decoration: none;">Explore docs →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <div style="display: flex; gap: 4rem; align-items: center;">
+          <div style="flex: 1;">
+            <h2 class="section-title">About TrustPuppy</h2>
+            <p class="section-subtitle">We're building the future of privacy-preserving AI. Our mission is to enable organizations to harness the power of artificial intelligence while maintaining the highest standards of data protection and user privacy.</p>
+            <p>Founded by privacy engineers and AI researchers, TrustPuppy combines cutting-edge machine learning with battle-tested privacy technologies. We believe that powerful AI and strong privacy aren't mutually exclusive—they're essential partners.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #2563eb;">
+                  <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                </svg>
+                <span>Privacy-first architecture</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #10b981;">
+                  <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                <span>Edge & on-device processing</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #8b5cf6;">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0110 0v4"></path>
+                </svg>
+                <span>Compliance-ready solutions</span>
+              </div>
+            </div>
+          </div>
+          
+          <div style="flex: 1;">
+            <div class="commitment-card" style="margin: 0;">
+              <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Our Commitment</h3>
+              <blockquote style="font-size: 1.25rem;">
+                "Every line of code we write, every model we train, and every system we deploy is designed with privacy as a fundamental requirement, not an afterthought."
+              </blockquote>
+              <cite>— TrustPuppy Engineering Team</cite>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Privacy-based AI Product Suite -->
+      <section id="products" class="product-suite">
+        <h2 class="section-title">Privacy-based AI Product Suite</h2>
+        <p class="section-subtitle">Start with our core modules and scale to your use case.</p>
+        <div style="display: flex; justify-content: flex-end">
+          <span style="background: var(--color-background); padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; color: var(--color-gray);">Modular</span>
+        </div>
+
+        <div class="product-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem;">
+          <div class="product-card" style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid var(--color-gray-light);">
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="17 2 12 7 7 2"></polyline>
+                <line x1="12" y1="7" x2="12" y2="18"></line>
+              </svg>
+              <h3 style="font-size: 1.25rem; margin: 0;">Digital Privacy Wallet</h3>
+            </div>
+            <p style="color: var(--color-gray); margin-bottom: 1.5rem;">Centralized privacy management</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+              <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">• Time-bound encrypted tokens</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">• Zero local data persistence</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem;">• Simplified compliance</li>
+            </ul>
+            <div style="display: flex; gap: 1rem;">
+              <a href="#" style="color: var(--color-gray); text-decoration: none; padding: 0.5rem 1rem; border: 1px solid var(--color-gray-light); border-radius: 0.5rem; transition: all 0.2s;">Learn more</a>
+              <a href="#" style="background: var(--color-accent); color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: all 0.2s;">Try it</a>
+            </div>
+          </div>
+
+          <div class="product-card" style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid var(--color-gray-light);">
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+              <h3 style="font-size: 1.25rem; margin: 0;">Privacy Preservation Agents</h3>
+            </div>
+            <p style="color: var(--color-gray); margin-bottom: 1.5rem;">AI with privacy guarantees</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+              <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">• Differential privacy & noise injection</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">• Federated learning pipelines</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem;">• Real-time privacy budgets</li>
+            </ul>
+            <div style="display: flex; gap: 1rem;">
+              <a href="#" style="color: var(--color-gray); text-decoration: none; padding: 0.5rem 1rem; border: 1px solid var(--color-gray-light); border-radius: 0.5rem; transition: all 0.2s;">Learn more</a>
+              <a href="#" style="background: var(--color-accent); color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: all 0.2s;">Try it</a>
+            </div>
+          </div>
+
+          <div class="product-card" style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid var(--color-gray-light);">
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <h3 style="font-size: 1.25rem; margin: 0;">Privacy Threat Modeling</h3>
+            </div>
+            <p style="color: var(--color-gray); margin-bottom: 1.5rem;">Proactive risk detection</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+              <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">• Automated data flow scanning</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">• Data lineage mapping</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem;">• Vulnerability identification</li>
+            </ul>
+            <div style="display: flex; gap: 1rem;">
+              <a href="#" style="color: var(--color-gray); text-decoration: none; padding: 0.5rem 1rem; border: 1px solid var(--color-gray-light); border-radius: 0.5rem; transition: all 0.2s;">Learn more</a>
+              <a href="#" style="background: var(--color-accent); color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: all 0.2s;">Try it</a>
+            </div>
+          </div>
+
+          <div class="product-card" style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid var(--color-gray-light);">
+            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                <path d="M21 5c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M21 5c0-1.66-4-3-9-3S3 3.34 3 5"></path>
+              </svg>
+              <h3 style="font-size: 1.25rem; margin: 0;">PII/PCI/PHI Detection</h3>
+            </div>
+            <p style="color: var(--color-gray); margin-bottom: 1.5rem;">Hybrid redaction agents</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+              <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">• AI + regex detection</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">• Context-aware analysis</li>
+              <li style="display: flex; align-items: center; gap: 0.5rem;">• High-fidelity sanitization</li>
+            </ul>
+            <div style="display: flex; gap: 1rem;">
+              <a href="#" style="color: var(--color-gray); text-decoration: none; padding: 0.5rem 1rem; border: 1px solid var(--color-gray-light); border-radius: 0.5rem; transition: all 0.2s;">Learn more</a>
+              <a href="#" style="background: var(--color-accent); color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: all 0.2s;">Try it</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <p style="color: var(--color-gray); margin-bottom: 1rem;">Showing 1-4 of 8 products</p>
+          <div style="display: flex; justify-content: center; gap: 1rem;">
+            <span style="background: var(--color-accent); color: white; padding: 0.5rem 1rem; border-radius: 0.5rem;">1</span>
+            <span style="padding: 0.5rem 1rem;">2</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Engineering Services -->
+      <section id="ai-engineering" class="services">
+        <h2 class="section-title">AI Engineering Services</h2>
+        <p class="section-subtitle">Expert implementation of privacy-preserving AI systems tailored to your needs.</p>
+        
+        <div style="display: flex; gap: 0.5rem; margin: 2rem 0;">
+          <div style="flex: 1; text-align: center; padding: 1rem; background: rgb(167 243 208 / 0.2); border-radius: 1rem;">AI Copilots</div>
+          <div style="flex: 1; text-align: center; padding: 1rem; background: rgb(167 243 208 / 0.2); border-radius: 1rem;">Privacy Analytics</div>
+          <div style="flex: 1; text-align: center; padding: 1rem; background: rgb(167 243 208 / 0.2); border-radius: 1rem;">AI Automation</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem;">
+          <!-- Privacy-First Copilots -->
+          <div style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid var(--color-gray-light);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Privacy-First Copilots</h3>
+            <p style="color: var(--color-gray); margin-bottom: 1rem;">Custom AI assistants with built-in privacy controls.</p>
+            <p style="margin-bottom: 1.5rem;">We engineer intelligent copilots that understand context while respecting data boundaries. Field-level masking, consent management, and audit trails built-in.</p>
+            <a href="#" style="color: var(--color-accent); text-decoration: none;">Learn more</a>
+          </div>
+
+          <!-- Secure Knowledge Systems -->
+          <div style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid var(--color-gray-light);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Secure Knowledge Systems</h3>
+            <p style="color: var(--color-gray); margin-bottom: 1rem;">RAG systems with cryptographic memory protection.</p>
+            <p style="margin-bottom: 1.5rem;">Build knowledge bases that cite sources while maintaining strict privacy controls. Selective disclosure and revocation capabilities that actually work.</p>
+            <a href="#" style="color: var(--color-accent); text-decoration: none;">Learn more</a>
+          </div>
+
+          <!-- Federated Analytics -->
+          <div style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid var(--color-gray-light);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Federated Analytics</h3>
+            <p style="color: var(--color-gray); margin-bottom: 1rem;">Learn from data without collecting it.</p>
+            <p style="margin-bottom: 1.5rem;">We implement differential privacy and federated learning systems that deliver insights while maintaining mathematical privacy guarantees.</p>
+            <a href="#" style="color: var(--color-accent); text-decoration: none;">Learn more</a>
+          </div>
+
+          <!-- Privacy-Safe Data Lakes -->
+          <div style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid var(--color-gray-light);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Privacy-Safe Data Lakes</h3>
+            <p style="color: var(--color-gray); margin-bottom: 1rem;">Sanitized pipelines for ML and analytics.</p>
+            <p style="margin-bottom: 1.5rem;">Design and deploy data processing systems that automatically detect and redact sensitive information before it enters your analytics pipeline.</p>
+            <a href="#" style="color: var(--color-accent); text-decoration: none;">Learn more</a>
+          </div>
+
+          <!-- Compliant AI Workflows -->
+          <div style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid var(--color-gray-light);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Compliant AI Workflows</h3>
+            <p style="color: var(--color-gray); margin-bottom: 1rem;">Automation with verifiable decision trails.</p>
+            <p style="margin-bottom: 1.5rem;">Build intelligent automation systems that maintain detailed audit logs and policy explanations for regulatory compliance.</p>
+            <a href="#" style="color: var(--color-accent); text-decoration: none;">Learn more</a>
+          </div>
+
+          <!-- Human-AI Collaboration -->
+          <div style="background: white; border-radius: 1rem; padding: 2rem; border: 1px solid var(--color-gray-light);">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Human-AI Collaboration</h3>
+            <p style="color: var(--color-gray); margin-bottom: 1rem;">Intelligent review systems for sensitive operations.</p>
+            <p style="margin-bottom: 1.5rem;">Design human-in-the-loop systems with smart escalation, risk assessment, and one-click remediation for privacy-sensitive workflows.</p>
+            <a href="#" style="color: var(--color-accent); text-decoration: none;">Learn more</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about">
+        <div style="display: flex; gap: 4rem; align-items: center;">
+          <div style="flex: 1;">
+            <h2 class="section-title">About TrustPuppy</h2>
+            <p class="section-subtitle">We're building the future of privacy-preserving AI. Our mission is to enable organizations to harness the power of artificial intelligence while maintaining the highest standards of data protection and user privacy.</p>
+            <p>Founded by privacy engineers and AI researchers, TrustPuppy combines cutting-edge machine learning with battle-tested privacy technologies. We believe that powerful AI and strong privacy aren't mutually exclusive—they're essential partners.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;">
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #2563eb;">
+                  <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                </svg>
+                <span>Privacy-first architecture</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #10b981;">
+                  <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                <span>Edge & on-device processing</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #8b5cf6;">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0110 0v4"></path>
+                </svg>
+                <span>Compliance-ready solutions</span>
+              </div>
+            </div>
+          </div>
+          
+          <div style="flex: 1;">
+            <div class="commitment-card" style="margin: 0;">
+              <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Our Commitment</h3>
+              <blockquote style="font-size: 1.25rem;">
+                "Every line of code we write, every model we train, and every system we deploy is designed with privacy as a fundamental requirement, not an afterthought."
+              </blockquote>
+              <cite>— TrustPuppy Engineering Team</cite>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Section -->
+      <section id="blog">
+        <h2 class="section-title">Latest Insights</h2>
+        <p class="section-subtitle">Explore our comprehensive privacy education series - 30 in-depth guides covering everything from basics to advanced topics.</p>
+        
+        <!-- Blog Grid -->
+        <div id="blog-grid" class="blog-grid">
+          <!-- Blog cards will be populated by JavaScript -->
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination">
+          <button id="prev-btn" class="pagination-btn" onclick="changePage(-1)">← Previous</button>
+          <div id="page-info" class="page-info">Page 1 of 8</div>
+          <button id="next-btn" class="pagination-btn" onclick="changePage(1)">Next →</button>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">Ready to build privacy-first AI? Let's talk about your use case.</p>
+        <div class="feature-card">
+          <p>Email us at: <a href="mailto:hello@trustpuppy.ai">hello@trustpuppy.ai</a></p>
+          <p>Or schedule a consultation:</p>
+          <a href="#" class="btn">Book a call</a>
+        </div>
+      </section>
+
+      <!-- Commitment Section -->
+      <div class="commitment-card">
+        <h2>Our Commitment</h2>
+        <blockquote>
+          "Every line of code we write, every model we train, and every system we deploy is designed with privacy as a fundamental requirement, not an afterthought."
+        </blockquote>
+        <cite>— TrustPuppy Engineering Team</cite>
+      </div>
+
+      <p class="text-center text-sm text-gray mt-16">&copy; 2025 TrustPuppy. All rights reserved.</p>
+    </main>
+  </div>
+
+  <script>
+    // Blog data with all 30 privacy topics
+    const blogPosts = [
+      {
+        title: "What is Digital Privacy?",
+        description: "Understanding the fundamentals of digital privacy, why it matters, and how it protects your personal information in the digital world.",
+        file: "1-what-is-digital-privacy.html"
+      },
+      {
+        title: "Personal vs Sensitive Data",
+        description: "Not all data is created equal - learn the crucial difference between personal and sensitive data and why it matters for privacy protection.",
+        file: "2-personal-vs-sensitive-data.html"
+      },
+      {
+        title: "US Privacy Basics (CCPA/CPRA, HIPAA, COPPA)",
+        description: "Navigate the complex landscape of US privacy laws including CCPA, CPRA, HIPAA, and COPPA regulations.",
+        file: "3-us-privacy-basics.html"
+      },
+      {
+        title: "GDPR Overview (EU)",
+        description: "Comprehensive guide to the General Data Protection Regulation and its impact on global privacy standards.",
+        file: "4-gdpr-overview.html"
+      },
+      {
+        title: "Canada (Québec) Law 25 / Bill 64",
+        description: "Understanding Quebec's privacy reform with Law 25 and its implications for businesses operating in Canada.",
+        file: "5-canada-law-25.html"
+      },
+      {
+        title: "Data Subject Rights (DSR)",
+        description: "Learn about individual rights under privacy laws including access, portability, deletion, and rectification.",
+        file: "6-data-subject-rights.html"
+      },
+      {
+        title: "Consent Management",
+        description: "Best practices for obtaining, managing, and respecting user consent in the digital age.",
+        file: "7-consent-management.html"
+      },
+      {
+        title: "Privacy Policies, Simplified",
+        description: "How to create clear, understandable privacy policies that actually protect users and comply with regulations.",
+        file: "8-privacy-policies-simplified.html"
+      },
+      {
+        title: "Right to be Forgotten (Erasure)",
+        description: "Understanding the right to erasure, its implementation challenges, and best practices for compliance.",
+        file: "9-right-to-be-forgotten.html"
+      },
+      {
+        title: "Data Minimization",
+        description: "Learn the principle of collecting only what you need and how it forms the foundation of privacy-by-design.",
+        file: "10-data-minimization.html"
+      },
+      {
+        title: "Purpose Limitation",
+        description: "Understanding how to define and stick to specific purposes for data collection and processing.",
+        file: "11-purpose-limitation.html"
+      },
+      {
+        title: "Differential Privacy (DP)",
+        description: "Explore how differential privacy enables statistical analysis while protecting individual privacy.",
+        file: "12-differential-privacy.html"
+      },
+      {
+        title: "Federated Learning (FL)",
+        description: "Learn how federated learning enables machine learning while keeping data decentralized and private.",
+        file: "13-federated-learning.html"
+      },
+      {
+        title: "Privacy Vaults & Personal Data Stores",
+        description: "Understanding emerging technologies that put individuals in control of their personal data.",
+        file: "14-privacy-vaults-personal-data-stores.html"
+      },
+      {
+        title: "Encryption & Anonymization",
+        description: "Technical deep-dive into encryption methods and anonymization techniques for privacy protection.",
+        file: "15-encryption-and-anonymization.html"
+      },
+      {
+        title: "Privacy by Design (PbD)",
+        description: "Learn Ann Cavoukian's foundational principles for building privacy into systems from the ground up.",
+        file: "16-privacy-by-design.html"
+      },
+      {
+        title: "Privacy Risk & Threat Modeling",
+        description: "Systematic approaches to identifying, assessing, and mitigating privacy risks in your systems.",
+        file: "17-privacy-risk-and-threat-modeling.html"
+      },
+      {
+        title: "LINDDUN Principle Explained",
+        description: "Comprehensive guide to the LINDDUN privacy threat modeling methodology and its practical applications.",
+        file: "18-linddun-principle-explained.html"
+      },
+      {
+        title: "Privacy Risk Assessment & Mitigation",
+        description: "Practical frameworks for conducting privacy impact assessments and implementing effective mitigation strategies.",
+        file: "19-privacy-risk-assessment-and-mitigation.html"
+      },
+      {
+        title: "Data Breaches & Lessons Learned",
+        description: "Analysis of major data breaches, their causes, impacts, and key lessons for improving privacy protection.",
+        file: "20-data-breaches-and-lessons.html"
+      },
+      {
+        title: "Privacy Monitoring & Auditing",
+        description: "Establishing continuous monitoring and auditing processes to ensure ongoing privacy compliance.",
+        file: "21-privacy-monitoring-and-auditing.html"
+      },
+      {
+        title: "Privacy KPIs (Metrics that Matter)",
+        description: "Key performance indicators for measuring and improving your organization's privacy posture.",
+        file: "22-privacy-kpis.html"
+      },
+      {
+        title: "Role of AI in Privacy",
+        description: "How artificial intelligence is both challenging and enhancing privacy protection in the digital age.",
+        file: "23-role-of-ai-in-privacy.html"
+      },
+      {
+        title: "Privacy in Cloud & SaaS Applications",
+        description: "Navigating privacy challenges and best practices when using cloud services and SaaS applications.",
+        file: "24-privacy-in-cloud-and-saas.html"
+      },
+      {
+        title: "Privacy in IoT & Smart Devices",
+        description: "Understanding privacy implications and protection strategies for Internet of Things and smart device ecosystems.",
+        file: "25-privacy-in-iot-and-smart-devices.html"
+      },
+      {
+        title: "Consent Fatigue & Best Practices",
+        description: "Addressing consent fatigue while maintaining meaningful user choice and regulatory compliance.",
+        file: "26-consent-fatigue-and-best-practices.html"
+      },
+      {
+        title: "Privacy Theft & Attack Modeling",
+        description: "Understanding how privacy attacks work and building defenses against sophisticated threat actors.",
+        file: "27-privacy-theft-and-attack-modeling.html"
+      },
+      {
+        title: "Future of Privacy Laws",
+        description: "Emerging privacy regulations worldwide and preparing for the next generation of privacy requirements.",
+        file: "28-future-of-privacy-laws.html"
+      },
+      {
+        title: "Building a Company Privacy Culture",
+        description: "Creating organizational culture where privacy is everyone's responsibility, not just the legal team's.",
+        file: "29-building-a-privacy-culture.html"
+      },
+      {
+        title: "Privacy Strategy Playbook (Retail Focus)",
+        description: "Industry-specific guide to implementing comprehensive privacy strategies in retail and e-commerce.",
+        file: "30-privacy-strategy-playbook-retail.html"
+      }
+    ];
+
+    // Pagination variables
+    let currentPage = 1;
+    const postsPerPage = 4;
+    const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+
+    // Function to render blog posts for current page
+    function renderBlogPosts() {
+      const blogGrid = document.getElementById('blog-grid');
+      const startIndex = (currentPage - 1) * postsPerPage;
+      const endIndex = startIndex + postsPerPage;
+      const currentPosts = blogPosts.slice(startIndex, endIndex);
+
+      blogGrid.innerHTML = currentPosts.map(post => `
+        <div class="blog-card">
+          <h3>${post.title}</h3>
+          <p>${post.description}</p>
+          <a href="${post.file}" class="read-more">Read more →</a>
+        </div>
+      `).join('');
+
+      // Update page info
+      document.getElementById('page-info').textContent = `Page ${currentPage} of ${totalPages}`;
+      
+      // Update button states
+      document.getElementById('prev-btn').disabled = currentPage === 1;
+      document.getElementById('next-btn').disabled = currentPage === totalPages;
+    }
+
+    // Function to change page
+    function changePage(direction) {
+      const newPage = currentPage + direction;
+      if (newPage >= 1 && newPage <= totalPages) {
+        currentPage = newPage;
+        renderBlogPosts();
+        
+        // Smooth scroll to blog section
+        document.getElementById('blog').scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+
+    // Initialize the blog on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      renderBlogPosts();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>🐶 Consent Management</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65;margin:0;background:#fafafa;color:#222}
+    main{max-width:860px;margin:40px auto;padding:0 20px;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+    header{padding:28px 28px 0}
+    h1{margin:0 0 8px}
+    section{padding:18px 28px}
+    h2{margin:0 0 8px;font-size:1.1rem;color:#0b5fff;text-transform:uppercase;letter-spacing:.04em}
+    ul{padding-left:18px}
+    .tag{display:inline-block;background:#eef4ff;color:#0b5fff;border-radius:999px;padding:2px 10px;font-size:.8rem;margin-left:.4rem}
+    .refs a{color:#0b5fff;text-decoration:none}
+    .refs li{margin:.35rem 0}
+    code{background:#f3f6ff;padding:.15rem .35rem;border-radius:6px}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>🐶 Consent Management <span class="tag">Informed • Specific • Revocable</span></h1>
+    <p>“I agree” should mean something—clear choices, real control, and proof you respected it.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p><strong>Consent management</strong> is the process of collecting, storing, and honoring a person’s choices about how their data is used. Under GDPR, valid consent is <em>freely given, specific, informed, and unambiguous</em>, and it must be as easy to withdraw as to give.</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>Granular, logged consent prevents “surprise” uses and reduces legal risk. It also improves UX trust—people are far more likely to opt in when the value exchange is obvious and the exit is painless.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <ul>
+      <li><strong>Retail apps:</strong> Separate toggles for <em>email offers</em>, <em>personalized ads</em>, and <em>location for delivery</em>. Each clearly explains why it’s needed.</li>
+      <li><strong>Web sites:</strong> Cookie banners with <em>Reject All</em> and <em>Manage Preferences</em>, not just one giant “Accept.”</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li>Adopt a <strong>Consent Management Platform (CMP)</strong>; log purpose + timestamp + identity (or pseudonym).</li>
+      <li>Make withdrawal one click (<code>Settings → Privacy → Withdraw</code>) and propagate to downstream systems.</li>
+      <li>Use <strong>layered language</strong>: short summary + “learn more.” Avoid bundled consent.</li>
+      <li>Respect browser signals (where applicable) and document your policy.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>GDPR Art. 7 (Conditions for consent): <a href="https://gdpr-info.eu/art-7-gdpr/" target="_blank" rel="noopener">gdpr-info.eu/art-7-gdpr</a></li>
+      <li>ICO guidance on consent: <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/what-is-the-uk-gdpr/" target="_blank" rel="noopener">ico.org.uk</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
