@@ -91,16 +91,15 @@
       return false;
     });
 
-    // Clear clipboard periodically
-    setInterval(function() {
+    // Clear clipboard only on copy attempts (less intrusive)
+    document.addEventListener('copy', function(e) {
       try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText('');
-        }
-      } catch (e) {
+        e.clipboardData.setData('text/plain', '');
+        e.preventDefault();
+      } catch (err) {
         // Silently handle errors
       }
-    }, 2000);
+    });
 
     // Disable print screen (visual feedback)
     document.addEventListener('keyup', function(e) {
@@ -126,7 +125,7 @@
     `;
     document.body.appendChild(watermark);
 
-    // Developer tools detection
+    // Developer tools detection (desktop only)
     let devtools = {
       open: false,
       orientation: null
@@ -134,43 +133,54 @@
     
     const threshold = 160;
     
-    setInterval(function() {
-      if (window.outerHeight - window.innerHeight > threshold || 
-          window.outerWidth - window.innerWidth > threshold) {
-        if (!devtools.open) {
-          devtools.open = true;
-          document.body.innerHTML = `
-            <div style="
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              min-height: 100vh;
-              background: #f8f9fa;
-              font-family: Arial, sans-serif;
-              text-align: center;
-              padding: 20px;
-            ">
+    // Check if device is mobile
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+             ('ontouchstart' in window) ||
+             (navigator.maxTouchPoints > 0) ||
+             (window.screen.width <= 768);
+    }
+    
+    // Only run dev tools detection on desktop devices
+    if (!isMobileDevice()) {
+      setInterval(function() {
+        if (window.outerHeight - window.innerHeight > threshold || 
+            window.outerWidth - window.innerWidth > threshold) {
+          if (!devtools.open) {
+            devtools.open = true;
+            document.body.innerHTML = `
               <div style="
-                background: white;
-                padding: 40px;
-                border-radius: 10px;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                max-width: 500px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: #f8f9fa;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 20px;
               ">
-                <h2 style="color: #0f172a; margin-bottom: 20px;">🔒 Content Protection Active</h2>
-                <p style="color: #6b7280; margin-bottom: 20px;">Developer tools have been detected. Please close them to continue viewing this content.</p>
-                <p style="color: #9ca3af; font-size: 14px;">This content is protected by TrustPuppy security measures.</p>
+                <div style="
+                  background: white;
+                  padding: 40px;
+                  border-radius: 10px;
+                  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                  max-width: 500px;
+                ">
+                  <h2 style="color: #0f172a; margin-bottom: 20px;">🔒 Content Protection Active</h2>
+                  <p style="color: #6b7280; margin-bottom: 20px;">Developer tools have been detected. Please close them to continue viewing this content.</p>
+                  <p style="color: #9ca3af; font-size: 14px;">This content is protected by TrustPuppy security measures.</p>
+                </div>
               </div>
-            </div>
-          `;
+            `;
+          }
+        } else {
+          if (devtools.open) {
+            devtools.open = false;
+            location.reload();
+          }
         }
-      } else {
-        if (devtools.open) {
-          devtools.open = false;
-          location.reload();
-        }
-      }
-    }, 500);
+      }, 500);
+    }
 
     // Disable image saving
     document.addEventListener('dragstart', function(e) {
