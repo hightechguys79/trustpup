@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 Federated Learning (FL)</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/content-protection.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🐶 Digital Privacy Education</h1>
+      <nav>
+        <a href="../index.html" class="back-button">
+          ← Back to Home
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <header>
+    <h1>🐶 Federated Learning (FL) <span class="tag">Train There, Not Here</span></h1>
+    <p>Let the model visit the data—not the other way around.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p><strong>Federated Learning</strong> trains models <em>on-device</em> or on local servers. Raw data stays put; only model updates (gradients/weights) are sent to a coordinator and <em>aggregated</em> into a global model. Combine with secure aggregation and DP for stronger privacy.</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>FL reduces centralized data hoarding, shrinks breach blast radius, and helps satisfy data-locality rules. It’s great for personalization without vacuuming up everyone’s raw clicks and keystrokes.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <ul>
+      <li><strong>Google Gboard:</strong> Learns typing patterns locally; only updates go upstream. No raw keystrokes leave the phone.</li>
+      <li><strong>Retail app:</strong> Train recommendations on a user’s device using their purchase/browse history; server sees gradients, not the raw history.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li>Prototype with <strong>TensorFlow Federated</strong> or <strong>PySyft</strong>.</li>
+      <li>Add <strong>secure aggregation</strong> so the server can’t read individual updates.</li>
+      <li>Layer <strong>differential privacy</strong> on model updates to bound leakage.</li>
+      <li>Document data residency, update cadence, and fallback when devices are offline.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>Google – Communication-Efficient Learning of Deep Networks from Decentralized Data (McMahan et al.): <a href="https://arxiv.org/abs/1602.05629" target="_blank" rel="noopener">arxiv.org/abs/1602.05629</a></li>
+      <li>TensorFlow Federated: <a href="https://www.tensorflow.org/federated" target="_blank" rel="noopener">tensorflow.org/federated</a></li>
+      <li>Secure Aggregation for FL (Bonawitz et al.): <a href="https://research.google/pubs/pub45808/" target="_blank" rel="noopener">research.google</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

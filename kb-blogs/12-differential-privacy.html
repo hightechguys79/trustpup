@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 Differential Privacy (DP)</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/content-protection.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🐶 Digital Privacy Education</h1>
+      <nav>
+        <a href="../index.html" class="back-button">
+          ← Back to Home
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <header>
+    <h1>🐶 Differential Privacy (DP) <span class="tag">Aggregate Insights, Individual Privacy</span></h1>
+    <p>Get the trend without outing the friend: protect people by adding carefully tuned noise.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p><strong>Differential Privacy</strong> adds mathematical noise to results so you can learn about groups while hiding any one person’s contribution. It sets a privacy budget (<code>ε</code>, “epsilon”) that bounds how much info can leak about an individual from any output.</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>It thwarts re-identification attacks on published statistics and model outputs, letting you share insights responsibly (and often legally) without exposing users.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <ul>
+      <li><strong>Apple (telemetry):</strong> Uses local DP to collect trends like emoji usage without learning any one person’s exact behavior.</li>
+      <li><strong>Retail analytics:</strong> Add noise to basket analysis so “top combos” are shareable without revealing a specific household’s shopping.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li>Pick a mechanism (Laplace/Gaussian) and set a sensible <code>ε</code> (lower = stronger privacy).</li>
+      <li>Budget privacy across queries; stop when the budget is spent.</li>
+      <li>Release only aggregates; avoid raw microdata exports.</li>
+      <li>Document your DP configuration and residual risks in a tech note.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>Dwork &amp; Roth (2014), <em>Algorithmic Foundations of Differential Privacy</em>: <a href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf" target="_blank" rel="noopener">privacybook.pdf</a></li>
+      <li>Apple Differential Privacy (overview): <a href="https://www.apple.com/privacy/docs/Differential_Privacy_Overview.pdf" target="_blank" rel="noopener">apple.com/privacy/docs/...</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

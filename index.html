@@ -6,6 +6,8 @@
   <title>🐶 TrustPuppy</title>
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <!-- Modal styles -->
+  <link rel="stylesheet" href="trustpuppy_kb/trustpuppy-modal.css">
   <style>
     :root {
       --color-background: #f8f9fa;
@@ -90,32 +92,24 @@
     }
 
     .nav-btn {
-      background-color: var(--color-accent);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       color: white !important;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-btn:hover {
       transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
     }
 
     section {
       padding: 4rem 0;
       position: relative;
-    }
-
-    section:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: var(--max-width);
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--color-gray-light) 50%, transparent);
     }
 
     .container {
@@ -135,15 +129,17 @@
     .btn {
       display: inline-flex;
       align-items: center;
-      background-color: var(--color-accent);
+      background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
       color: white;
       padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 500;
+      border-radius: 0.75rem;
+      font-weight: 600;
       text-decoration: none;
-      transition: var(--transition);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 2px 8px rgba(107, 114, 128, 0.15);
     }
 
     .btn::after {
@@ -153,14 +149,15 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgb(255 255 255 / 0.1);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
       transform: translateX(-100%);
-      transition: var(--transition);
+      transition: transform 0.6s ease;
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: 0 8px 25px rgba(107, 114, 128, 0.25);
+      background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
     }
 
     .btn:hover::after {
@@ -336,18 +333,41 @@
     }
 
     .try-btn {
-      color: var(--color-gray);
+      color: #2563eb;
       font-size: 0.875rem;
+      font-weight: 600;
       text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      border: 1px solid var(--color-gray-light);
-      transition: all 0.2s ease;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e2e8f0;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .try-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+      transition: left 0.6s;
+    }
+
+    .try-btn:hover::before {
+      left: 100%;
     }
 
     .try-btn:hover {
-      background: var(--color-gray-light);
-      color: var(--color-accent);
+      background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%);
+      border-color: #bfdbfe;
+      color: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
     }
 
     .service-grid {
@@ -382,14 +402,14 @@
     }
 
     .service-card .learn-more {
-      color: var(--color-accent);
+      color: #16a34a;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 700;
       transition: var(--transition);
     }
 
     .service-card .learn-more:hover {
-      color: var(--color-accent-light);
+      color: #15803d;
     }
 
     /* Blog Grid Styles */
@@ -446,9 +466,9 @@
     }
 
     .blog-card .read-more {
-      color: var(--color-accent);
+      color: #dc2626;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 700;
       transition: var(--transition);
       display: inline-flex;
       align-items: center;
@@ -456,7 +476,7 @@
     }
 
     .blog-card .read-more:hover {
-      color: var(--color-accent-light);
+      color: #b91c1c;
       transform: translateX(4px);
     }
 
@@ -470,25 +490,29 @@
     }
 
     .pagination-btn {
-      background: var(--color-accent);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       color: white;
       border: none;
       padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-weight: 500;
+      border-radius: 0.75rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: var(--transition);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
     }
 
     .pagination-btn:hover:not(:disabled) {
-      background: var(--color-accent-light);
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
     }
 
     .pagination-btn:disabled {
-      background: var(--color-gray);
+      background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
       cursor: not-allowed;
       transform: none;
+      opacity: 0.6;
     }
 
     .page-info {
@@ -515,6 +539,71 @@
 
     .commitment-card cite {
       color: var(--color-gray);
+    }
+
+    /* Product Details Popup */
+    .product-details-popup {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 0.75rem;
+      margin-top: 1rem;
+      border: 0px solid var(--color-gray-light);
+    }
+
+    .product-details-popup.open {
+      max-height: 800px;
+      overflow-y: auto;
+      border: 1px solid var(--color-gray-light);
+    }
+
+    .product-details-content {
+      padding: 1.5rem;
+    }
+
+    .product-details-popup h4 {
+      color: var(--color-accent);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .product-details-popup p {
+      color: var(--color-text);
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .product-details-popup p:last-child {
+      margin-bottom: 0;
+    }
+
+    .close-details {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--color-gray);
+      cursor: pointer;
+      font-size: 1.25rem;
+      padding: 0.25rem;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .close-details:hover {
+      color: var(--color-accent);
+      background: rgba(15, 23, 42, 0.05);
+    }
+
+    .product-card {
+      position: relative;
     }
 
     @keyframes fadeIn {
@@ -575,6 +664,42 @@
       .product-card, .service-card {
         padding: 1.5rem;
       }
+    }
+
+    /* Content Protection Styles */
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      pointer-events: auto;
+    }
+
+    /* Disable image dragging */
+    img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      pointer-events: none;
+    }
+
+    /* Disable text highlighting */
+    ::selection {
+      background: transparent;
+    }
+
+    ::-moz-selection {
+      background: transparent;
     }
   </style>
 </head>
@@ -693,8 +818,14 @@
               <li>• Granular consent management</li>
             </ul>
             <div class="product-actions">
-              <a href="#" class="try-btn">Learn more</a>
+              <a href="#" class="try-btn" onclick="toggleProductDetails(this, 'Digital Privacy Wallet'); return false;">Learn more</a>
               <a href="#" class="btn">Try it</a>
+            </div>
+            <div class="product-details-popup">
+              <div class="product-details-content">
+                <button class="close-details" onclick="closeProductDetails(this)">×</button>
+                <div class="details-content"></div>
+              </div>
             </div>
           </div>
 
@@ -713,15 +844,33 @@
               <li>• Mathematical privacy proofs</li>
             </ul>
             <div class="product-actions">
-              <a href="#" class="try-btn">Learn more</a>
+              <a href="#" class="try-btn" onclick="toggleProductDetails(this, 'Privacy Preservation Agents'); return false;">Learn more</a>
               <a href="#" class="btn">Try it</a>
+            </div>
+            <div class="product-details-popup">
+              <div class="product-details-content">
+                <button class="close-details" onclick="closeProductDetails(this)">×</button>
+                <div class="details-content"></div>
+              </div>
             </div>
           </div>
 
           <div class="product-card">
             <h3>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <defs>
+                  <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <path d="M32 6l18 6v14c0 10.5-6.8 20.3-18 24-11.2-3.7-18-13.5-18-24V12l18-6z" fill="url(#shieldGradient)" opacity="0.15"/>
+                <path d="M32 6l18 6v14c0 10.5-6.8 20.3-18 24-11.2-3.7-18-13.5-18-24V12l18-6z" fill="none" stroke="url(#shieldGradient)" stroke-width="2"/>
+                <circle cx="24" cy="28" r="2.5" fill="url(#shieldGradient)"/>
+                <circle cx="40" cy="28" r="2.5" fill="url(#shieldGradient)"/>
+                <circle cx="32" cy="22" r="2.5" fill="url(#shieldGradient)"/>
+                <rect x="28" y="34" width="8" height="6" rx="1" fill="url(#shieldGradient)"/>
+                <path d="M30 34v-2a2 2 0 0 1 4 0v2" fill="none" stroke="url(#shieldGradient)" stroke-width="1.5"/>
               </svg>
               Privacy Threat Modeling
             </h3>
@@ -733,8 +882,14 @@
               <li>• LINDDUN methodology support</li>
             </ul>
             <div class="product-actions">
-              <a href="#" class="try-btn">Learn more</a>
+              <a href="#" class="try-btn" onclick="toggleProductDetails(this, 'Privacy Threat Modeling'); return false;">Learn more</a>
               <a href="#" class="btn">Try it</a>
+            </div>
+            <div class="product-details-popup">
+              <div class="product-details-content">
+                <button class="close-details" onclick="closeProductDetails(this)">×</button>
+                <div class="details-content"></div>
+              </div>
             </div>
           </div>
 
@@ -756,8 +911,44 @@
               <li>• Real-time processing</li>
             </ul>
             <div class="product-actions">
-              <a href="#" class="try-btn">Learn more</a>
+              <a href="#" class="try-btn" onclick="toggleProductDetails(this, 'PII/PCI/PHI Detection'); return false;">Learn more</a>
               <a href="#" class="btn">Try it</a>
+            </div>
+            <div class="product-details-popup">
+              <div class="product-details-content">
+                <button class="close-details" onclick="closeProductDetails(this)">×</button>
+                <div class="details-content"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <h3>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14,2 14,8 20,8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10,9 9,9 8,9"></polyline>
+              </svg>
+              DSR Agents
+            </h3>
+            <p class="subtitle">Automated data subject request fulfillment</p>
+            <ul>
+              <li>• Automated intake & verification</li>
+              <li>• Cross-system orchestration</li>
+              <li>• Consent rule enforcement</li>
+              <li>• Auditable compliance reports</li>
+            </ul>
+            <div class="product-actions">
+              <a href="#" class="try-btn" onclick="toggleProductDetails(this, 'DSR Agents'); return false;">Learn more</a>
+              <a href="#" class="btn">Try it</a>
+            </div>
+            <div class="product-details-popup">
+              <div class="product-details-content">
+                <button class="close-details" onclick="closeProductDetails(this)">×</button>
+                <div class="details-content"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -773,42 +964,42 @@
             <h3>Privacy-First Copilots</h3>
             <p class="subtitle">Custom AI assistants with built-in privacy controls</p>
             <p>We engineer intelligent copilots that understand context while respecting data boundaries. Field-level masking, consent management, and audit trails built-in.</p>
-            <a href="#" class="learn-more">Learn more →</a>
+            <a href="#" class="learn-more" onclick="TrustPuppyModal.load('trustpuppy_kb/privacy-first-copilots.html'); return false;">Learn more →</a>
           </div>
 
           <div class="service-card">
             <h3>Secure Knowledge Systems</h3>
             <p class="subtitle">RAG systems with cryptographic memory protection</p>
             <p>Build knowledge bases that cite sources while maintaining strict privacy controls. Selective disclosure and revocation capabilities that actually work.</p>
-            <a href="#" class="learn-more">Learn more →</a>
+            <a href="#" class="learn-more" onclick="TrustPuppyModal.load('trustpuppy_kb/secure-knowledge-systems.html'); return false;">Learn more →</a>
           </div>
 
           <div class="service-card">
             <h3>Federated Analytics</h3>
             <p class="subtitle">Learn from data without collecting it</p>
             <p>We implement differential privacy and federated learning systems that deliver insights while maintaining mathematical privacy guarantees.</p>
-            <a href="#" class="learn-more">Learn more →</a>
+            <a href="#" class="learn-more" onclick="TrustPuppyModal.load('trustpuppy_kb/federated-analytics.html'); return false;">Learn more →</a>
           </div>
 
           <div class="service-card">
             <h3>Privacy-Safe Data Lakes</h3>
             <p class="subtitle">Sanitized pipelines for ML and analytics</p>
             <p>Design and deploy data processing systems that automatically detect and redact sensitive information before it enters your analytics pipeline.</p>
-            <a href="#" class="learn-more">Learn more →</a>
+            <a href="#" class="learn-more" onclick="TrustPuppyModal.load('trustpuppy_kb/privacy-safe-data-lakes.html'); return false;">Learn more →</a>
           </div>
 
           <div class="service-card">
             <h3>Compliant AI Workflows</h3>
             <p class="subtitle">Automation with verifiable decision trails</p>
             <p>Build intelligent automation systems that maintain detailed audit logs and policy explanations for regulatory compliance.</p>
-            <a href="#" class="learn-more">Learn more →</a>
+            <a href="#" class="learn-more" onclick="TrustPuppyModal.load('trustpuppy_kb/compliant-ai-workflows.html'); return false;">Learn more →</a>
           </div>
 
           <div class="service-card">
             <h3>Human-AI Collaboration</h3>
             <p class="subtitle">Intelligent review systems for sensitive operations</p>
             <p>Design human-in-the-loop systems with smart escalation, risk assessment, and one-click remediation for privacy-sensitive workflows.</p>
-            <a href="#" class="learn-more">Learn more →</a>
+            <a href="#" class="learn-more" onclick="TrustPuppyModal.load('trustpuppy_kb/human-ai-collaboration.html'); return false;">Learn more →</a>
           </div>
         </div>
       </section>
@@ -841,6 +1032,7 @@
       </div>
 
       <p class="text-center text-sm text-gray mt-16">&copy; 2025 TrustPuppy. All rights reserved.</p>
+      <p class="text-center text-sm text-gray" style="margin-top: 0.5rem; font-size: 0.75rem;">🔒 This content is protected by advanced security measures. Unauthorized copying or reproduction is prohibited.</p>
     </main>
   </div>
 
@@ -850,152 +1042,152 @@
       {
         title: "What is Digital Privacy?",
         description: "Understanding the fundamentals of digital privacy, why it matters, and how it protects your personal information in the digital world.",
-        file: "1-what-is-digital-privacy.html"
+        file: "kb-blogs/1-what-is-digital-privacy.html"
       },
       {
         title: "Personal vs Sensitive Data",
         description: "Not all data is created equal - learn the crucial difference between personal and sensitive data and why it matters for privacy protection.",
-        file: "2-personal-vs-sensitive-data.html"
+        file: "kb-blogs/2-personal-vs-sensitive-data.html"
       },
       {
         title: "US Privacy Basics (CCPA/CPRA, HIPAA, COPPA)",
         description: "Navigate the complex landscape of US privacy laws including CCPA, CPRA, HIPAA, and COPPA regulations.",
-        file: "3-us-privacy-basics.html"
+        file: "kb-blogs/3-us-privacy-basics.html"
       },
       {
         title: "GDPR Overview (EU)",
         description: "Comprehensive guide to the General Data Protection Regulation and its impact on global privacy standards.",
-        file: "4-gdpr-overview.html"
+        file: "kb-blogs/4-gdpr-overview.html"
       },
       {
         title: "Canada (Québec) Law 25 / Bill 64",
         description: "Understanding Quebec's privacy reform with Law 25 and its implications for businesses operating in Canada.",
-        file: "5-canada-law-25.html"
+        file: "kb-blogs/5-canada-law-25.html"
       },
       {
         title: "Data Subject Rights (DSR)",
         description: "Learn about individual rights under privacy laws including access, portability, deletion, and rectification.",
-        file: "6-data-subject-rights.html"
+        file: "kb-blogs/6-data-subject-rights.html"
       },
       {
         title: "Consent Management",
         description: "Best practices for obtaining, managing, and respecting user consent in the digital age.",
-        file: "7-consent-management.html"
+        file: "kb-blogs/7-consent-management.html"
       },
       {
         title: "Privacy Policies, Simplified",
         description: "How to create clear, understandable privacy policies that actually protect users and comply with regulations.",
-        file: "8-privacy-policies-simplified.html"
+        file: "kb-blogs/8-privacy-policies-simplified.html"
       },
       {
         title: "Right to be Forgotten (Erasure)",
         description: "Understanding the right to erasure, its implementation challenges, and best practices for compliance.",
-        file: "9-right-to-be-forgotten.html"
+        file: "kb-blogs/9-right-to-be-forgotten.html"
       },
       {
         title: "Data Minimization",
         description: "Learn the principle of collecting only what you need and how it forms the foundation of privacy-by-design.",
-        file: "10-data-minimization.html"
+        file: "kb-blogs/10-data-minimization.html"
       },
       {
         title: "Purpose Limitation",
         description: "Understanding how to define and stick to specific purposes for data collection and processing.",
-        file: "11-purpose-limitation.html"
+        file: "kb-blogs/11-purpose-limitation.html"
       },
       {
         title: "Differential Privacy (DP)",
         description: "Explore how differential privacy enables statistical analysis while protecting individual privacy.",
-        file: "12-differential-privacy.html"
+        file: "kb-blogs/12-differential-privacy.html"
       },
       {
         title: "Federated Learning (FL)",
         description: "Learn how federated learning enables machine learning while keeping data decentralized and private.",
-        file: "13-federated-learning.html"
+        file: "kb-blogs/13-federated-learning.html"
       },
       {
         title: "Privacy Vaults & Personal Data Stores",
         description: "Understanding emerging technologies that put individuals in control of their personal data.",
-        file: "14-privacy-vaults-personal-data-stores.html"
+        file: "kb-blogs/14-privacy-vaults-personal-data-stores.html"
       },
       {
         title: "Encryption & Anonymization",
         description: "Technical deep-dive into encryption methods and anonymization techniques for privacy protection.",
-        file: "15-encryption-and-anonymization.html"
+        file: "kb-blogs/15-encryption-and-anonymization.html"
       },
       {
         title: "Privacy by Design (PbD)",
         description: "Learn Ann Cavoukian's foundational principles for building privacy into systems from the ground up.",
-        file: "16-privacy-by-design.html"
+        file: "kb-blogs/16-privacy-by-design.html"
       },
       {
         title: "Privacy Risk & Threat Modeling",
         description: "Systematic approaches to identifying, assessing, and mitigating privacy risks in your systems.",
-        file: "17-privacy-risk-and-threat-modeling.html"
+        file: "kb-blogs/17-privacy-risk-and-threat-modeling.html"
       },
       {
         title: "LINDDUN Principle Explained",
         description: "Comprehensive guide to the LINDDUN privacy threat modeling methodology and its practical applications.",
-        file: "18-linddun-principle-explained.html"
+        file: "kb-blogs/18-linddun-principle-explained.html"
       },
       {
         title: "Privacy Risk Assessment & Mitigation",
         description: "Practical frameworks for conducting privacy impact assessments and implementing effective mitigation strategies.",
-        file: "19-privacy-risk-assessment-and-mitigation.html"
+        file: "kb-blogs/19-privacy-risk-assessment-and-mitigation.html"
       },
       {
         title: "Data Breaches & Lessons Learned",
         description: "Analysis of major data breaches, their causes, impacts, and key lessons for improving privacy protection.",
-        file: "20-data-breaches-and-lessons.html"
+        file: "kb-blogs/20-data-breaches-and-lessons.html"
       },
       {
         title: "Privacy Monitoring & Auditing",
         description: "Establishing continuous monitoring and auditing processes to ensure ongoing privacy compliance.",
-        file: "21-privacy-monitoring-and-auditing.html"
+        file: "kb-blogs/21-privacy-monitoring-and-auditing.html"
       },
       {
         title: "Privacy KPIs (Metrics that Matter)",
         description: "Key performance indicators for measuring and improving your organization's privacy posture.",
-        file: "22-privacy-kpis.html"
+        file: "kb-blogs/22-privacy-kpis.html"
       },
       {
         title: "Role of AI in Privacy",
         description: "How artificial intelligence is both challenging and enhancing privacy protection in the digital age.",
-        file: "23-role-of-ai-in-privacy.html"
+        file: "kb-blogs/23-role-of-ai-in-privacy.html"
       },
       {
         title: "Privacy in Cloud & SaaS Applications",
         description: "Navigating privacy challenges and best practices when using cloud services and SaaS applications.",
-        file: "24-privacy-in-cloud-and-saas.html"
+        file: "kb-blogs/24-privacy-in-cloud-and-saas.html"
       },
       {
         title: "Privacy in IoT & Smart Devices",
         description: "Understanding privacy implications and protection strategies for Internet of Things and smart device ecosystems.",
-        file: "25-privacy-in-iot-and-smart-devices.html"
+        file: "kb-blogs/25-privacy-in-iot-and-smart-devices.html"
       },
       {
         title: "Consent Fatigue & Best Practices",
         description: "Addressing consent fatigue while maintaining meaningful user choice and regulatory compliance.",
-        file: "26-consent-fatigue-and-best-practices.html"
+        file: "kb-blogs/26-consent-fatigue-and-best-practices.html"
       },
       {
         title: "Privacy Theft & Attack Modeling",
         description: "Understanding how privacy attacks work and building defenses against sophisticated threat actors.",
-        file: "27-privacy-theft-and-attack-modeling.html"
+        file: "kb-blogs/27-privacy-theft-and-attack-modeling.html"
       },
       {
         title: "Future of Privacy Laws",
         description: "Emerging privacy regulations worldwide and preparing for the next generation of privacy requirements.",
-        file: "28-future-of-privacy-laws.html"
+        file: "kb-blogs/28-future-of-privacy-laws.html"
       },
       {
         title: "Building a Company Privacy Culture",
         description: "Creating organizational culture where privacy is everyone's responsibility, not just the legal team's.",
-        file: "29-building-a-privacy-culture.html"
+        file: "kb-blogs/29-building-a-privacy-culture.html"
       },
       {
         title: "Privacy Strategy Playbook (Retail Focus)",
         description: "Industry-specific guide to implementing comprehensive privacy strategies in retail and e-commerce.",
-        file: "30-privacy-strategy-playbook-retail.html"
+        file: "kb-blogs/30-privacy-strategy-playbook-retail.html"
       }
     ];
 
@@ -1046,6 +1238,252 @@
     document.addEventListener('DOMContentLoaded', function() {
       renderBlogPosts();
     });
+
+    // Product details data
+    const productDetails = {
+      "Digital Privacy Wallet": {
+        problem: "Organizations face PII sprawl — customer data gets copied into hundreds of systems, creating compliance overhead, higher breach risks, and costly responses to privacy requests.",
+        approach: "The Privacy Wallet serves as the single source of truth for sensitive customer data. Instead of duplicating records across applications, systems request time-bound, encrypted tokens from the wallet. This ensures no local persistence, reduces the privacy attack surface, and simplifies compliance.",
+        value: "Lower operational costs for privacy servicing, minimized data breach exposure, and greater customer trust through transparent, centralized privacy management."
+      },
+      "Privacy Preservation Agents": {
+        problem: "Modern personalization and recommendation systems rely heavily on sensitive user data, which collides with rising regulations and user expectations for privacy.",
+        approach: "Privacy agents embed differential privacy, adaptive noise injection, and federated/on-device learning directly into AI pipelines. These agents continuously manage privacy budgets, select appropriate models, and react to user context in real time.",
+        value: "Organizations can deliver personalization with mathematical privacy guarantees, balancing relevance and compliance while letting users control their privacy settings."
+      },
+      "Privacy Threat Modeling": {
+        problem: "Enterprises often lack visibility into where and how sensitive data is exposed across codebases, integrations, and workflows. This blind spot leads to unaddressed vulnerabilities and elevated regulatory risk.",
+        approach: "Threat modeling agents scan repositories and systems to detect data flows involving PII/PCI/PHI. They automatically build data lineage maps and identify weak points for remediation before production release.",
+        value: "Proactive mitigation of privacy risks, reduced cost of compliance audits, and fewer costly incidents through early detection."
+      },
+      "PII/PCI/PHI Detection": {
+        problem: "Sensitive data frequently enters logs, documents, and pipelines that were never designed to store it. Traditional regex-based tools miss edge cases or generate too many false positives.",
+        approach: "Hybrid agents combine deterministic detection (regex, patterns) with AI-driven contextual understanding to identify and redact PII/PCI/PHI across text, JSON, and semi-structured data.",
+        value: "High-fidelity detection with fewer misses and false alarms, enabling enterprises to sanitize data lakes, analytics pipelines, and AI workloads confidently."
+      },
+      "DSR Agents": {
+        problem: "Privacy regulations mandate that organizations must fulfill user requests to access, correct, or delete their data — yet servicing these at scale is expensive and error-prone.",
+        approach: "DSR Agents automate intake, verification, and fulfillment of data subject requests across distributed systems. They orchestrate queries into the Privacy Wallet and integrated systems, enforce consent rules, and produce auditable reports.",
+        value: "Reduced servicing costs, faster compliance response times, and transparent reporting that satisfies regulatory requirements while reinforcing user trust."
+      }
+    };
+
+    // Toggle product details popup
+    function toggleProductDetails(button, productName) {
+      const productCard = button.closest('.product-card');
+      const popup = productCard.querySelector('.product-details-popup');
+      const detailsContent = popup.querySelector('.details-content');
+      
+      // Close any other open popups first
+      document.querySelectorAll('.product-details-popup.open').forEach(openPopup => {
+        if (openPopup !== popup) {
+          openPopup.classList.remove('open');
+          openPopup.style.maxHeight = '0px';
+        }
+      });
+      
+      // Toggle current popup
+      if (popup.classList.contains('open')) {
+        popup.classList.remove('open');
+        popup.style.maxHeight = '0px';
+        button.textContent = 'Learn more';
+      } else {
+        const details = productDetails[productName];
+        if (details) {
+          detailsContent.innerHTML = `
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+              The Problem
+            </h4>
+            <p>${details.problem}</p>
+            
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+              Our Approach
+            </h4>
+            <p>${details.approach}</p>
+            
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"></polyline>
+              </svg>
+              Business Value
+            </h4>
+            <p>${details.value}</p>
+          `;
+          
+          // Calculate the actual content height
+          popup.style.maxHeight = 'none';
+          popup.style.overflow = 'visible';
+          const contentHeight = popup.scrollHeight;
+          popup.style.maxHeight = '0px';
+          popup.style.overflow = 'hidden';
+          
+          // Force reflow then animate to content height
+          requestAnimationFrame(() => {
+            popup.classList.add('open');
+            popup.style.maxHeight = contentHeight + 'px';
+          });
+          
+          button.textContent = 'Show less';
+        }
+      }
+    }
+
+    // Close product details popup
+    function closeProductDetails(closeButton) {
+      const popup = closeButton.closest('.product-details-popup');
+      const productCard = popup.closest('.product-card');
+      const learnMoreButton = productCard.querySelector('.try-btn');
+      
+      popup.classList.remove('open');
+      popup.style.maxHeight = '0px';
+      learnMoreButton.textContent = 'Learn more';
+    }
+
+    // Content Protection Script
+    document.addEventListener('DOMContentLoaded', function() {
+      // Disable right-click context menu
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      });
+
+      // Disable F12, Ctrl+Shift+I, Ctrl+U, Ctrl+A, Ctrl+S, Ctrl+P
+      document.addEventListener('keydown', function(e) {
+        // F12 (Developer Tools)
+        if (e.keyCode === 123) {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+Shift+I (Developer Tools)
+        if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+U (View Source)
+        if (e.ctrlKey && e.keyCode === 85) {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+A (Select All)
+        if (e.ctrlKey && e.keyCode === 65) {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+S (Save)
+        if (e.ctrlKey && e.keyCode === 83) {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+P (Print)
+        if (e.ctrlKey && e.keyCode === 80) {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+C (Copy)
+        if (e.ctrlKey && e.keyCode === 67) {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+X (Cut)
+        if (e.ctrlKey && e.keyCode === 88) {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Ctrl+V (Paste)
+        if (e.ctrlKey && e.keyCode === 86) {
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      // Disable drag and drop
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+      });
+
+      // Disable text selection with mouse
+      document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        return false;
+      });
+
+      // Clear clipboard periodically
+      setInterval(function() {
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText('');
+          }
+        } catch (e) {
+          // Silently handle errors
+        }
+      }, 1000);
+
+      // Disable print screen (visual feedback)
+      document.addEventListener('keyup', function(e) {
+        if (e.keyCode === 44) {
+          document.body.style.display = 'none';
+          setTimeout(function() {
+            document.body.style.display = 'block';
+          }, 100);
+        }
+      });
+
+      // Add invisible watermark
+      const watermark = document.createElement('div');
+      watermark.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><text x="50%" y="50%" text-anchor="middle" dy=".3em" font-family="Arial" font-size="14" fill="%23000000" opacity="0.02" transform="rotate(-45 100 100)">TrustPuppy Protected Content</text></svg>') repeat;
+      `;
+      document.body.appendChild(watermark);
+
+      // Disable dev tools detection
+      let devtools = {
+        open: false,
+        orientation: null
+      };
+      
+      const threshold = 160;
+      
+      setInterval(function() {
+        if (window.outerHeight - window.innerHeight > threshold || 
+            window.outerWidth - window.innerWidth > threshold) {
+          if (!devtools.open) {
+            devtools.open = true;
+            document.body.innerHTML = '<div style="text-align:center;padding:50px;font-family:Arial;"><h2>Content Protection Active</h2><p>Developer tools have been detected. Please close them to continue.</p></div>';
+          }
+        } else {
+          if (devtools.open) {
+            devtools.open = false;
+            location.reload();
+          }
+        }
+      }, 500);
+    });
   </script>
+  
+  <!-- Modal functionality -->
+  <script src="trustpuppy_kb/trustpuppy-modal.js"></script>
 </body>
 </html>

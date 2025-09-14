@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 Personal Data vs Sensitive Data</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/content-protection.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🐶 Digital Privacy Education</h1>
+      <nav>
+        <a href="../index.html" class="back-button">
+          ← Back to Home
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <header>
+    <h1>🐶 Personal Data vs Sensitive Data <span class="tag">Foundations</span></h1>
+    <p>Not all data is created equal: some bits say who you are; others reveal what could seriously harm you if exposed.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p><strong>Personal data</strong> is anything that identifies you (name, email, phone, loyalty ID, device ID). <strong>Sensitive data</strong> (a.k.a. GDPR “special categories”) includes health details, biometrics, precise location, racial/ethnic origin, sexual orientation, political opinions, religious beliefs, and certain financial/medical records. It’s the difference between knowing “you’re Alex” and knowing “Alex’s heart condition + medications.”</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>Sensitive data carries higher risk if misused—discrimination, targeted scams, blackmail, or financial/medical harms. Laws typically require <em>stronger</em> safeguards, explicit consent, and tighter access for sensitive categories.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <ul>
+      <li><strong>Fitness app:</strong> Heart rate &amp; mental health notes = sensitive.</li>
+      <li><strong>Retail loyalty:</strong> Email &amp; shopping list = personal. Still protected, but risk profile differs.</li>
+      <li><strong>Walmart pharmacy:</strong> Purchase history (personal) can cross into HIPAA territory when tied to prescriptions (sensitive).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li><strong>Classify</strong> each field (personal vs sensitive) in your data inventory.</li>
+      <li><strong>Encrypt</strong> sensitive categories at rest &amp; in transit; use key rotation.</li>
+      <li><strong>Limit access</strong> to least-privileged roles; enable just-in-time access for support.</li>
+      <li><strong>Require explicit consent</strong> before collecting/processing sensitive data; log the proof.</li>
+      <li><strong>Shorten retention</strong> and set auto-deletion timers for high-risk fields.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>GDPR Art. 9 – Special categories of personal data: <a href="https://gdpr-info.eu/art-9-gdpr/" target="_blank" rel="noopener">gdpr-info.eu/art-9-gdpr</a></li>
+      <li>HIPAA Privacy Rule (HHS): <a href="https://www.hhs.gov/hipaa/for-professionals/privacy/index.html" target="_blank" rel="noopener">hhs.gov/hipaa</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

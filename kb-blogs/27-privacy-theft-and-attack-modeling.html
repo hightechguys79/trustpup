@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 Privacy Theft & Attack Modeling</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/content-protection.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🐶 Digital Privacy Education</h1>
+      <nav>
+        <a href="../index.html" class="back-button">
+          ← Back to Home
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <header>
+    <h1>🐶 Privacy Theft &amp; Attack Modeling <span class="tag">Think Like an Adversary</span></h1>
+    <p>Attackers don’t need your name to find you—linkage and inference can be enough.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p><strong>Privacy attacks</strong> include re-identification (linking anonymized data to real people), inference (guessing sensitive traits), tracking (cookies, device fingerprints), and correlation across datasets. <em>Attack modeling</em> anticipates these and designs defenses.</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>Public datasets, partner feeds, and logs can combine into a deanonymization cocktail. Proactive modeling stops accidental exposure and partner overreach.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <ul>
+      <li><strong>Retail datasets:</strong> Basket + timestamp + ZIP can re-ID households; add DP noise, generalize timestamps/locations, and drop rare SKUs.</li>
+      <li><strong>Fingerprinting:</strong> Block “super-cookies”; randomize IDs; restrict third-party scripts.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li>Run <strong>LINDDUN</strong> and augment with re-ID threat tests (k-anonymity, l-diversity checks).</li>
+      <li>Apply <strong>differential privacy</strong> for published stats; limit query cadence.</li>
+      <li>Adopt <strong>Content Security Policy</strong> and script allow-lists; monitor third-party calls.</li>
+      <li>Use <strong>tokenization</strong> and rotate identifiers across contexts.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>LINDDUN – privacy threat modeling: <a href="https://www.linddun.org/" target="_blank" rel="noopener">linddun.org</a></li>
+      <li>Differential Privacy – Dwork &amp; Roth: <a href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf" target="_blank" rel="noopener">privacybook.pdf</a></li>
+      <li>ICO Anonymisation &amp; Re-identification guidance: <a href="https://ico.org.uk/" target="_blank" rel="noopener">ico.org.uk</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

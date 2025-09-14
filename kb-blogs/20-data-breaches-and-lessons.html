@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 Data Breaches & Lessons Learned</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/content-protection.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🐶 Digital Privacy Education</h1>
+      <nav>
+        <a href="../index.html" class="back-button">
+          ← Back to Home
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <header>
+    <h1>🐶 Data Breaches &amp; Lessons Learned <span class="tag">Prepare > Repair</span></h1>
+    <p>The cheapest breach is the one you prevented—second cheapest is the one you contained fast.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p>A <strong>data breach</strong> is unauthorized access/exfiltration of personal data. Root causes range from credential stuffing to third-party compromise to memory-scraping malware on POS devices.</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>Breaches bring costs (forensics, notifications, fines), operational disruption, and trust loss. Strong preparation (segmentation, least privilege, detection) turns disasters into containable incidents.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <ul>
+      <li><strong>Target (2013):</strong> POS malware exposed ~40M cards → lessons: network segmentation, vendor access controls, rapid detection/response.</li>
+      <li><strong>Yahoo (2013–2014 disclosed 2016):</strong> Massive account compromise → lessons: credential hygiene, encryption of sensitive fields, continuous monitoring.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li>Encrypt at rest/in transit; tokenize payment data; segment networks.</li>
+      <li>Adopt <strong>least privilege</strong>; rotate keys/credentials; enforce MFA.</li>
+      <li>Monitor with anomaly detection; run tabletop exercises; prepare breach comms templates.</li>
+      <li>Maintain a vendor risk program and incident notification clauses.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>Target breach overview (public reporting): <a href="https://money.cnn.com/2017/05/23/technology/target-breach-settlement/index.html" target="_blank" rel="noopener">CNN Business</a></li>
+      <li>Verizon Data Breach Investigations Report (DBIR): <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener">verizon.com/.../dbir</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

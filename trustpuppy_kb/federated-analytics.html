@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐶 Federated Analytics</title><link rel="stylesheet" href="../css/style.css">  <script src="../js/content-protection.js"></script>
+</head>
+<body><article>
+  <h2>🐶 Federated Analytics</h2>
+  <p><em>Learn from data without collecting it</em></p>
+  <h3>What</h3>
+  <p>Analytics and ML where raw data <strong>stays on the device or in-region</strong>. Models train locally; only updates/gradients are shared. Add <strong>Differential Privacy (DP)</strong> and <strong>secure aggregation</strong> to bound individual leakage.</p>
+  <h3>Why It Matters</h3>
+  <p>Gain cross-store/app insights without centralising sensitive events—reducing breach blast radius and simplifying data-locality compliance.</p>
+  <h3>Example</h3>
+  <ul>
+    <li><strong>Retail Personalisation:</strong> On-device learning for next-best offer. Gradients are securely aggregated, with DP noise added before global updates—no keystrokes or raw purchase logs uploaded.</li>
+  </ul>
+  <h3>How (Starter Pack)</h3>
+  <ul>
+    <li>Prototype with <a href="https://www.tensorflow.org/federated" target="_blank" rel="noopener">TensorFlow Federated</a> or <a href="https://github.com/OpenMined/PySyft" target="_blank" rel="noopener">PySyft</a>.</li>
+    <li>Use <a href="https://github.com/tensorflow/privacy" target="_blank" rel="noopener">DP-SGD (TensorFlow Privacy)</a> to track ε/δ and privacy budgets.</li>
+    <li>Enable <a href="https://arxiv.org/abs/1602.05629" target="_blank" rel="noopener">secure aggregation</a> so servers can’t read a single client update.</li>
+    <li>Document fairness, drift checks, and client participation policies.</li>
+  </ul>
+  <h3>References</h3>
+  <ul>
+    <li>Dwork &amp; Roth – <em>Algorithmic Foundations of Differential Privacy</em>: <a href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf" target="_blank" rel="noopener">https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf</a></li>
+    <li>TensorFlow Privacy: <a href="https://github.com/tensorflow/privacy" target="_blank" rel="noopener">https://github.com/tensorflow/privacy</a></li>
+    <li>Federated Learning overview: <a href="https://www.tensorflow.org/federated" target="_blank" rel="noopener">https://www.tensorflow.org/federated</a></li>
+  </ul>
+</article></body></html>

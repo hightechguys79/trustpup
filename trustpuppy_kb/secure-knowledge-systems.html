@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐶 Secure Knowledge Systems</title><link rel="stylesheet" href="../css/style.css">  <script src="../js/content-protection.js"></script>
+</head>
+<body><article>
+  <h2>🐶 Secure Knowledge Systems</h2>
+  <p><em>RAG systems with cryptographic memory protection</em></p>
+  <h3>What</h3>
+  <p>Retrieval-Augmented Generation (RAG) with <strong>selective disclosure</strong>. Documents are encrypted at rest, decrypted per request, and filtered by <strong>attribute-based access control (ABAC)</strong> and consent. The system cites sources and prevents disallowed fields from being surfaced.</p>
+  <h3>Why It Matters</h3>
+  <p>Naïve RAG can over-return sensitive passages. Combining cryptography, ABAC, and redaction ensures only minimal, permitted text is returned—and access can be revoked instantly by disabling decryption keys.</p>
+  <h3>Example</h3>
+  <ul>
+    <li><strong>Policy Q&amp;A:</strong> Employees ask policy questions; RAG returns least-privilege snippets with source links. If consent is withdrawn or a doc is revoked, future requests cannot decrypt it.</li>
+  </ul>
+  <h3>How (Starter Pack)</h3>
+  <ul>
+    <li>Encrypt documents with KMS/HSM; rotate keys; keep per-document or per-tenant keys.</li>
+    <li>Gate retrieval and final rendering by ABAC (department, region, role, purpose).</li>
+    <li>Pseudonymise identifiers in embeddings; never embed raw SSNs/emails.</li>
+    <li>Maintain live revocation (key disablement) and signed, time-stamped citations.</li>
+  </ul>
+  <h3>References</h3>
+  <ul>
+    <li>NIST SP 800-57 (Key Management): <a href="https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final" target="_blank" rel="noopener">https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final</a></li>
+    <li>NIST SP 800-52r2 (TLS): <a href="https://csrc.nist.gov/publications/detail/sp/800-52/rev-2/final" target="_blank" rel="noopener">https://csrc.nist.gov/publications/detail/sp/800-52/rev-2/final</a></li>
+    <li>NIST Privacy Framework: <a href="https://www.nist.gov/privacy-framework" target="_blank" rel="noopener">https://www.nist.gov/privacy-framework</a></li>
+  </ul>
+</article></body></html>

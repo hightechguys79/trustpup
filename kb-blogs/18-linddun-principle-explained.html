@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 LINDDUN Principle Explained</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/content-protection.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🐶 Digital Privacy Education</h1>
+      <nav>
+        <a href="../index.html" class="back-button">
+          ← Back to Home
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <header>
+    <h1>🐶 LINDDUN Principle Explained</h1>
+    <p>Seven lenses to reveal privacy risks hiding in plain sight.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p><strong>LINDDUN</strong> is a privacy threat modeling framework: <span class="pill">Linkability</span><span class="pill">Identifiability</span><span class="pill">Non-repudiation</span><span class="pill">Detectability</span><span class="pill">Disclosure of information</span><span class="pill">Unawareness</span><span class="pill">Non-compliance</span>. Use it with a data flow diagram to ask, “How could this system leak or misuse personal data?”</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>It gives teams a shared checklist to find non-obvious privacy failures (e.g., correlating pseudonymous events to re-identify people) and map them to actionable mitigations.</p>
+  </section>
+
+  <section>
+    <h2>Example (Retail Loyalty)</h2>
+    <ul>
+      <li><strong>Linkability:</strong> Same token across apps? Use rotating IDs per context.</li>
+      <li><strong>Identifiability:</strong> Purchase logs + rare items may identify a household; aggregate and bucket rare categories.</li>
+      <li><strong>Non-repudiation:</strong> Excessive logging can tie actions too tightly to a person; consider ephemeral IDs for low-risk flows.</li>
+      <li><strong>Detectability:</strong> Network patterns may reveal presence; add padding/noise to sensitive endpoints.</li>
+      <li><strong>Disclosure:</strong> Limit fields in partner feeds; encrypt at rest and in transit.</li>
+      <li><strong>Unawareness:</strong> Add layered notices and just-in-time prompts.</li>
+      <li><strong>Non-compliance:</strong> Map flows to GDPR/CCPA/Law 25; fix gaps before launch.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li>Draw a <strong>DFD</strong>; enumerate stores, flows, actors.</li>
+      <li>Run LINDDUN questions per flow; record risks &amp; severities.</li>
+      <li>Apply mitigations: minimization, pseudonymization, access limits, DP, consent, policy.</li>
+      <li>Re-run after major changes; link outcomes to PIAs and audit logs.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>Official LINDDUN site & resources: <a href="https://www.linddun.org/" target="_blank" rel="noopener">linddun.org</a></li>
+      <li>NIST Privacy Framework (threat identification): <a href="https://www.nist.gov/privacy-framework" target="_blank" rel="noopener">nist.gov/privacy-framework</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

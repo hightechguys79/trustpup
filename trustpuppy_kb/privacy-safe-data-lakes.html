@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐶 Privacy-Safe Data Lakes</title><link rel="stylesheet" href="../css/style.css">  <script src="../js/content-protection.js"></script>
+</head>
+<body><article>
+  <h2>🐶 Privacy-Safe Data Lakes</h2>
+  <p><em>Sanitized pipelines for ML and analytics</em></p>
+  <h3>What</h3>
+  <p>Ingestion pipelines that <strong>detect, classify, and transform</strong> sensitive data <em>before</em> it lands in your lake. Use tokenisation, redaction, anonymisation, and DP for published aggregates.</p>
+  <h3>Why It Matters</h3>
+  <p>Raw dumps of receipts, logs, or chats become re-identification traps. Sanitisation at the edge keeps ML useful and datasets safe.</p>
+  <h3>Example</h3>
+  <ul>
+    <li><strong>ETL for Receipts &amp; Support Logs:</strong> Classifiers catch PII/PHI. Emails → tokens; rare SKUs bucketed; ZIP codes coarsened; counts released with DP.</li>
+  </ul>
+  <h3>How (Starter Pack)</h3>
+  <ul>
+    <li>Run <strong>PII scanners</strong> with a policy engine (mask/drop/tokenise).</li>
+    <li>Attach schema tags (purpose, retention, lawful basis). Enforce at read/write.</li>
+    <li>Adopt a tokenisation service (format-preserving where needed).</li>
+    <li>Apply <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information/what-is-personal-data/anonymisation/guidance-on-anonymisation/" target="_blank" rel="noopener">k-anonymity/l-diversity/t-closeness guidance</a>; use DP for public stats.</li>
+    <li>Use <strong>data contracts</strong> to reject non-conformant payloads.</li>
+  </ul>
+  <h3>References</h3>
+  <ul>
+    <li>NIST SP 800-122: <a href="https://csrc.nist.gov/publications/detail/sp/800-122/final" target="_blank" rel="noopener">https://csrc.nist.gov/publications/detail/sp/800-122/final</a></li>
+    <li>ICO – Anonymisation: <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information/what-is-personal-data/anonymisation/guidance-on-anonymisation/" target="_blank" rel="noopener">https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information/what-is-personal-data/anonymisation/guidance-on-anonymisation/</a></li>
+    <li>NIST Privacy Framework: <a href="https://www.nist.gov/privacy-framework" target="_blank" rel="noopener">https://www.nist.gov/privacy-framework</a></li>
+  </ul>
+</article></body></html>

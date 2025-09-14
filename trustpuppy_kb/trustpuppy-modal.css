@@ -1,0 +1,236 @@
+/* TrustPuppy Modal Styles - Enhanced */
+.tp-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#tp-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+#tp-modal.open {
+  pointer-events: auto;
+}
+
+#tp-modal.open .tp-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tp-dialog {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: min(800px, 90vw);
+  max-height: 80vh;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10000;
+}
+
+#tp-modal.open .tp-dialog {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.tp-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: 0;
+  background: rgba(15, 23, 42, 0.1);
+  color: #0f172a;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 300;
+  transition: all 0.2s ease;
+  z-index: 10001;
+}
+
+.tp-close:hover {
+  background: rgba(15, 23, 42, 0.15);
+  transform: scale(1.1);
+}
+
+.tp-content {
+  overflow-y: auto;
+  max-height: 80vh;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+}
+
+/* Header Styling */
+.tp-content h2 {
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tp-content h2:first-child {
+  padding-top: 0;
+}
+
+.tp-content p:first-of-type {
+  color: #64748b;
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Section Headers */
+.tp-content h3 {
+  color: #0f172a;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 20px 0 10px 0;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-left: 3px solid #0f172a;
+  border-radius: 0 6px 6px 0;
+  position: relative;
+}
+
+.tp-content h3:first-of-type {
+  margin-top: 0;
+}
+
+/* Content Text */
+.tp-content p {
+  color: #374151;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Lists */
+.tp-content ul {
+  margin: 12px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.tp-content li {
+  color: #374151;
+  margin-bottom: 8px;
+  padding: 8px 16px;
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: 6px;
+  border-left: 2px solid #e5e7eb;
+  transition: all 0.2s ease;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.tp-content li:hover {
+  background: rgba(248, 250, 252, 1);
+  border-left-color: #0f172a;
+  transform: translateX(4px);
+}
+
+.tp-content li strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Links */
+.tp-content a {
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.tp-content a:hover {
+  color: #1e293b;
+  border-bottom-color: #0f172a;
+}
+
+/* References Section */
+.tp-content h3:last-of-type {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border-left-color: #64748b;
+}
+
+.tp-content ul:last-child li {
+  background: rgba(241, 245, 249, 0.6);
+  border-left-color: #cbd5e1;
+}
+
+/* Scrollbar Styling */
+.tp-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tp-content::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.tp-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.tp-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tp-dialog {
+    width: 95vw;
+    max-height: 90vh;
+    border-radius: 16px;
+  }
+  
+  .tp-content {
+    padding: 20px 16px;
+  }
+  
+  .tp-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .tp-content h3 {
+    font-size: 1rem;
+    margin: 16px 0 8px 0;
+    padding: 6px 12px;
+  }
+  
+  .tp-content li {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}

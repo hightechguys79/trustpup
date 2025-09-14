@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐶 Privacy-First Copilots</title><link rel="stylesheet" href="../css/style.css">  <script src="../js/content-protection.js"></script>
+</head>
+<body><article>
+  <h2>🐶 Privacy-First Copilots</h2>
+  <p><em>Custom AI assistants with built-in privacy controls</em></p>
+  <h3>What</h3>
+  <p>AI copilots that answer enterprise questions <strong>without leaking sensitive fields</strong>. They enforce field-level masking, consent checks, policy-aware retrieval, and full auditability. Prompts and responses are scrubbed, and every access is logged with purpose and actor.</p>
+  <h3>Why It Matters</h3>
+  <p>LLM prompts can accidentally include PII/PHI or trade secrets. Privacy-first controls prevent <em>over-collection</em>, <em>purpose creep</em>, and <em>prompt exfiltration</em> while creating defensible audit trails.</p>
+  <h3>Example</h3>
+  <ul>
+    <li><strong>Customer Care Copilot:</strong> Sees order totals and line items but masks card PAN and full address unless the role is “Refund Ops” with active consent.</li>
+    <li><strong>Pharmacy:</strong> Can cite formulary guidance, but cannot surface prescription history unless HIPAA role + break-glass reason is provided and logged.</li>
+  </ul>
+  <h3>How (Starter Pack)</h3>
+  <ul>
+    <li>Classify columns (PII/sensitive) and tag with policies (mask, tokenize, deny).</li>
+    <li><strong>Policy-aware RAG</strong> so retrieval filters snippets by role, purpose, and consent.</li>
+    <li>Scrub prompts/responses for high-risk entities (SSN, PAN, diagnosis codes).</li>
+    <li>Bind answers to lawful basis & consent receipt; emit immutable, signed logs.</li>
+  </ul>
+  <h3>References</h3>
+  <ul>
+    <li>NIST Privacy Framework: <a href="https://www.nist.gov/privacy-framework" target="_blank" rel="noopener">https://www.nist.gov/privacy-framework</a></li>
+    <li>ISO/IEC 27701 overview: <a href="https://www.iso.org/standard/71670.html" target="_blank" rel="noopener">https://www.iso.org/standard/71670.html</a></li>
+    <li>ICO – Anonymisation guidance: <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/personal-information/what-is-personal-data/anonymisation/" target="_blank" rel="noopener">https://ico.org.uk/for-organisations/.../anonymisation/</a></li>
+  </ul>
+</article></body></html>

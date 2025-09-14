@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 Privacy in Cloud & SaaS Applications</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/content-protection.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🐶 Digital Privacy Education</h1>
+      <nav>
+        <a href="../index.html" class="back-button">
+          ← Back to Home
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <header>
+    <h1>🐶 Privacy in Cloud &amp; SaaS Applications <span class="tag">Shared Responsibility</span></h1>
+    <p>Cloud doesn’t remove your privacy duties—it just changes the playbook.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p>Cloud/SaaS is <strong>shared responsibility</strong>: providers secure the platform; you secure data, identities, configurations, and lawful processing. Privacy controls must cover data residency, encryption, access, vendor contracts, and cross-border transfers (SCCs).</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>Misconfigurations and unchecked vendors cause many incidents. Strong agreements (DPAs), technical controls (customer-managed keys), and regionalization reduce risk and ease compliance.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <ul>
+      <li><strong>Shopify:</strong> Encrypts merchant &amp; customer data in the cloud; merchants configure access and apps carefully.</li>
+      <li><strong>Retail analytics stack:</strong> Region-lock PII in the EU; export only anonymized aggregates elsewhere with SCCs.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li>Enable <strong>encryption at rest</strong> with KMS/HSM; consider customer-managed keys.</li>
+      <li>Harden identity: SSO, MFA, least privilege, short-lived credentials.</li>
+      <li>Review <strong>DPA/SCCs</strong>; maintain a vendor register, conduct periodic assessments.</li>
+      <li>Use <strong>data residency</strong> controls; segregate PII; tokenize across regions.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>Standard Contractual Clauses (EU): <a href="https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en" target="_blank" rel="noopener">EU Commission SCCs</a></li>
+      <li>ISO/IEC 27018 – Cloud PII protection: <a href="https://www.iso.org/standard/76559.html" target="_blank" rel="noopener">iso.org</a></li>
+      <li>NIST SP 800-53/171 (controls), NIST Privacy Framework: <a href="https://www.nist.gov/privacy-framework" target="_blank" rel="noopener">nist.gov/privacy-framework</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

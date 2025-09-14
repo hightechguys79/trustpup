@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 Privacy Risk & Threat Modeling</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/content-protection.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🐶 Digital Privacy Education</h1>
+      <nav>
+        <a href="../index.html" class="back-button">
+          ← Back to Home
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <header>
+    <h1>🐶 Privacy Risk &amp; Threat Modeling <span class="tag">See it → Fix it</span></h1>
+    <p>Spot privacy failures before they ship. Your users (and regulators) will love you.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p><strong>Privacy threat modeling</strong> systematically identifies how a system could enable misuse of personal data (re-identification, excessive collection, undisclosed sharing, etc.). Use frameworks like <em>LINDDUN</em> to structure the hunt.</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>Early detection is cheaper than incident response. Modeling clarifies mitigations (minimization, purpose limits, DP, encryption, access control) and informs PIAs and compliance docs.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <ul>
+      <li><strong>Retail checkout:</strong> Map data flows for PII, payment, and logs. Identify over-collection (phone + email + precise location). Reduce to essentials.</li>
+      <li><strong>Loyalty + geolocation:</strong> Flag linkability risk; use rotating IDs and coarse-grain location for analytics.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li>Draw a <strong>data flow diagram</strong> (DFD) and list assets, actors, stores, and flows.</li>
+      <li>Apply <strong>LINDDUN</strong> to each flow; capture risks and severities.</li>
+      <li>Pick mitigations and owners; add them to your backlog/PRD.</li>
+      <li>Re-run the model on major changes; link to PIA and security reviews.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>NIST Privacy Framework (Identify-P, Govern-P, Control-P): <a href="https://www.nist.gov/privacy-framework" target="_blank" rel="noopener">nist.gov/privacy-framework</a></li>
+      <li>LINDDUN methodology: <a href="https://www.linddun.org/" target="_blank" rel="noopener">linddun.org</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

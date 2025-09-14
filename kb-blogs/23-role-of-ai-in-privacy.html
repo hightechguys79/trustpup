@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🐶 Role of AI in Privacy</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/content-protection.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🐶 Digital Privacy Education</h1>
+      <nav>
+        <a href="../index.html" class="back-button">
+          ← Back to Home
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+  <header>
+    <h1>🐶 Role of AI in Privacy <span class="tag">Protector &amp; Risk</span></h1>
+    <p>AI can guard the gates—or blow them open. Design decides.</p>
+  </header>
+
+  <section>
+    <h2>What</h2>
+    <p><strong>AI for privacy</strong> includes anomaly detection (weird access patterns), automated redaction, smarter DSR routing, and privacy-preserving ML (DP, FL, synthetic data). But AI can also infer sensitive traits—use with guardrails.</p>
+  </section>
+
+  <section>
+    <h2>Why It Matters</h2>
+    <p>Automation scales compliance and detection; privacy-preserving ML unlocks insights without hoarding raw data. Misuse risks profiling, bias, and over-collection—regulators are watching.</p>
+  </section>
+
+  <section>
+    <h2>Example</h2>
+    <ul>
+      <li><strong>Anomaly detection:</strong> Flag sudden bulk exports of PII from data lakes.</li>
+      <li><strong>DP training:</strong> Train models on clickstreams with <code>ε</code>-bounded leakage.</li>
+      <li><strong>Federated learning:</strong> Personalize on-device; upload gradients, not raw events.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How (Starter Pack)</h2>
+    <ul>
+      <li>Adopt <strong>privacy threat modeling</strong> for AI features; document intended use and limits.</li>
+      <li>Use <strong>DP-SGD</strong>, secure aggregation, and synthetic data where appropriate.</li>
+      <li>Log model inputs/outputs for audits; avoid storing raw prompts where unnecessary.</li>
+      <li>Create a review board for high-risk AI use cases.</li>
+    </ul>
+  </section>
+
+  <section class="refs">
+    <h2>References</h2>
+    <ul>
+      <li>Dwork &amp; Roth – Differential Privacy: <a href="https://www.cis.upenn.edu/~aaroth/Papers/privacybook.pdf" target="_blank" rel="noopener">privacybook.pdf</a></li>
+      <li>TensorFlow Privacy (DP-SGD): <a href="https://github.com/tensorflow/privacy" target="_blank" rel="noopener">github.com/tensorflow/privacy</a></li>
+      <li>Federated Learning overview (TFF): <a href="https://www.tensorflow.org/federated" target="_blank" rel="noopener">tensorflow.org/federated</a></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
