@@ -1,4 +1,4 @@
-// TrustPuppy Content Protection Script
+// ZeroTrust Content Protection Script
 (function() {
   'use strict';
 
@@ -121,7 +121,7 @@
       height: 100%;
       pointer-events: none;
       z-index: 9999;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><text x="50%" y="50%" text-anchor="middle" dy=".3em" font-family="Arial" font-size="16" fill="%23000000" opacity="0.015" transform="rotate(-45 150 150)">TrustPuppy Protected Content</text></svg>') repeat;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><text x="50%" y="50%" text-anchor="middle" dy=".3em" font-family="Arial" font-size="16" fill="%23000000" opacity="0.015" transform="rotate(-45 150 150)">ZeroTrust Protected Content</text></svg>') repeat;
     `;
     document.body.appendChild(watermark);
 
@@ -168,7 +168,7 @@
                 ">
                   <h2 style="color: #0f172a; margin-bottom: 20px;">🔒 Content Protection Active</h2>
                   <p style="color: #6b7280; margin-bottom: 20px;">Developer tools have been detected. Please close them to continue viewing this content.</p>
-                  <p style="color: #9ca3af; font-size: 14px;">This content is protected by TrustPuppy security measures.</p>
+                  <p style="color: #9ca3af; font-size: 14px;">This content is protected by ZeroTrust security measures.</p>
                 </div>
               </div>
             `;
@@ -193,7 +193,7 @@
     // Console warning
     console.clear();
     console.log('%c🔒 Content Protection Warning', 'color: red; font-size: 20px; font-weight: bold;');
-    console.log('%cThis content is protected by TrustPuppy. Unauthorized access or copying is prohibited.', 'color: #666; font-size: 14px;');
+    console.log('%cThis content is protected by ZeroTrust. Unauthorized access or copying is prohibited.', 'color: #666; font-size: 14px;');
     console.log('%cViolation of these terms may result in legal action.', 'color: #666; font-size: 14px;');
 
     // Clear console periodically

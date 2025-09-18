@@ -1,4 +1,4 @@
-// TrustPuppy modal loader
+// ZeroTrust modal loader
 (function(){
   function ensureModal(){
     let wrap = document.getElementById('tp-modal');
@@ -63,6 +63,6 @@
       cont.innerHTML = `<p>Failed to load content: ${e.message}</p>`;
     }
   }
-  window.TrustPuppyModal = { open, close, load };
-  console.log('TrustPuppyModal initialized successfully');
+  window.ZeroTrustModal = { open, close, load };
+  console.log('ZeroTrustModal initialized successfully');
 })();
